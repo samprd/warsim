@@ -8,6 +8,7 @@ class_name empire
 @export_color_no_alpha var base_color: Color;
 @export var flag: Image;
 @export var original_territory: territory;
+@export var main: game;
 
 @export var members: Array[territory];
 
@@ -30,6 +31,8 @@ func invade(enemy: empire):
 		member.setEmpire(self);
 		members.append(member);
 	enemy.members = [];
+	main.alive_empires.remove_at(main.alive_empires.find(enemy));
+	main.dead_empires.append(enemy);
 
 func rebel():
 	var old_empire = original_territory.current_empire;
@@ -39,3 +42,6 @@ func rebel():
 
 	members = [original_territory];
 	original_territory.setEmpire(self);
+
+	main.dead_empires.remove_at(main.dead_empires.find(self));
+	main.alive_empires.append(self);
