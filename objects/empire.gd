@@ -11,8 +11,12 @@ class_name empire
 
 @export var members: Array[territory];
 
+func _ready():
+	members = [original_territory];
+	original_territory.setEmpire(self);
+
 func get_neighbours():
-	var neighbours = Array[territory];
+	var neighbours: Array[territory] = [];
 
 	for member in members:
 		for neighbour in member.neighbours:

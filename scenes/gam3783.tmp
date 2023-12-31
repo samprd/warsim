@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://xpen707iiywc"]
+
+[ext_resource type="PackedScene" uid="uid://d3umx83b8wi86" path="res://objects/territory.tscn" id="1_padcq"]
+[ext_resource type="PackedScene" uid="uid://d3vi5co3frh5a" path="res://objects/empire.tscn" id="2_bp1i5"]
+
+[node name="Game" type="Node"]
+
+[node name="territory1" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(704, 284)
+current_empire = NodePath("../empire1")
+
+[node name="empire1" parent="." instance=ExtResource("2_bp1i5")]
+position = Vector2(704, 284)
+base_color = Color(1, 0, 0, 1)
+
+[node name="territory2" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(960, 284)
+current_empire = NodePath("../empire2")
+
+[node name="empire2" parent="." instance=ExtResource("2_bp1i5")]
+position = Vector2(960, 284)
+base_color = Color(1, 0.501961, 0, 1)
+
+[node name="territory3" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(1216, 284)
+current_empire = NodePath("../empire3")
+
+[node name="empire3" parent="." instance=ExtResource("2_bp1i5")]
+position = Vector2(1216, 284)
+base_color = Color(1, 1, 0, 1)
+
+[node name="territory4" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(704, 540)
+current_empire = NodePath("../empire4")
+
+[node name="empire4" parent="." instance=ExtResource("2_bp1i5")]
+position = Vector2(704, 540)
+base_color = Color(0, 1, 0, 1)
+
+[node name="territory5" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(960, 540)
+current_empire = NodePath("../empire5")
+
+[node name="empire5" parent="." instance=ExtResource("2_bp1i5")]
+position = Vector2(960, 540)
+base_color = Color(0, 1, 1, 1)
+
+[node name="territory6" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(1216, 540)
+current_empire = NodePath("../empire6")
+
+[node name="empire6" parent="." instance=ExtResource("2_bp1i5")]
+position = Vector2(1216, 540)
+base_color = Color(0, 0, 1, 1)
+
+[node name="territory7" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(704, 796)
+current_empire = NodePath("../empire7")
+
+[node name="empire7" parent="." node_paths=PackedStringArray("original_territory", "members") instance=ExtResource("2_bp1i5")]
+position = Vector2(704, 796)
+base_color = Color(0.501961, 0, 1, 1)
+original_territory = NodePath("../territory7")
+members = [NodePath("../territory7")]
+
+[node name="territory8" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(960, 796)
+current_empire = NodePath("../empire8")
+
+[node name="empire8" parent="." node_paths=PackedStringArray("original_territory", "members") instance=ExtResource("2_bp1i5")]
+position = Vector2(960, 796)
+base_color = Color(1, 0, 1, 1)
+original_territory = NodePath("../territory8")
+members = [NodePath("../territory8")]
+
+[node name="territory9" parent="." node_paths=PackedStringArray("current_empire") instance=ExtResource("1_padcq")]
+position = Vector2(1216, 796)
+current_empire = NodePath("../empire9")
+
+[node name="empire9" parent="." node_paths=PackedStringArray("original_territory", "members") instance=ExtResource("2_bp1i5")]
+position = Vector2(1216, 796)
+base_color = Color(0.391185, 0.391185, 0.391185, 1)
+original_territory = NodePath("../territory9")
+members = [NodePath("../territory9")]

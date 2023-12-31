@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3umx83b8wi86"]
+[gd_scene load_steps=3 format=3 uid="uid://d3umx83b8wi86"]
 
 [ext_resource type="Script" path="res://objects/territory.gd" id="1_ag84o"]
+[ext_resource type="Texture2D" uid="uid://87gm7q6a5ljj" path="res://assets/square.png" id="2_h6kqp"]
 
-[node name="territory" type="Node2D"]
+[node name="territory" type="Sprite2D"]
+texture = ExtResource("2_h6kqp")
 script = ExtResource("1_ag84o")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
