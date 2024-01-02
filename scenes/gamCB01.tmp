@@ -1,130 +1,130 @@
-[gd_scene load_steps=5 format=3 uid="uid://xpen707iiywc"]
+[gd_scene load_steps=4 format=3 uid="uid://xpen707iiywc"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gqnug"]
 [ext_resource type="PackedScene" uid="uid://d3umx83b8wi86" path="res://objects/territory.tscn" id="1_padcq"]
-[ext_resource type="PackedScene" uid="uid://bl5jxv2or78xe" path="res://objects/ui.tscn" id="2_7i26d"]
 [ext_resource type="PackedScene" uid="uid://d3vi5co3frh5a" path="res://objects/empire.tscn" id="2_bp1i5"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("alive_empires", "ui", "game_timer")]
+[node name="Game" type="Node" node_paths=PackedStringArray("alive_empires")]
 script = ExtResource("1_gqnug")
 alive_empires = [NodePath("empire1"), NodePath("empire2"), NodePath("empire3"), NodePath("empire4"), NodePath("empire5"), NodePath("empire6"), NodePath("empire7"), NodePath("empire8"), NodePath("empire9")]
-ui = NodePath("CanvasLayer/UI")
-game_timer = NodePath("GameTimer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("2_7i26d")]
+[node name="Invade" type="Button" parent="CanvasLayer"]
+offset_left = 95.0
+offset_top = 98.0
+offset_right = 465.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 48
+text = "Invade"
 
-[node name="GameTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+[node name="Rebel" type="Button" parent="CanvasLayer"]
+offset_left = 95.0
+offset_top = 232.0
+offset_right = 465.0
+offset_bottom = 329.0
+theme_override_font_sizes/font_size = 48
+text = "Rebel
+"
 
 [node name="territory1" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(704, 284)
 neighbours = [NodePath("../territory2"), NodePath("../territory4")]
+current_empire = NodePath("")
 
 [node name="empire1" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(704, 284)
-label = "Red"
 base_color = Color(1, 0, 0, 1)
-flag = "res://assets/example-flags/redflag.png"
 original_territory = NodePath("../territory1")
 main = NodePath("..")
 
 [node name="territory2" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(960, 284)
 neighbours = [NodePath("../territory1"), NodePath("../territory5"), NodePath("../territory3")]
+current_empire = NodePath("")
 
 [node name="empire2" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(960, 284)
-label = "Orange"
 base_color = Color(1, 0.501961, 0, 1)
-flag = "res://assets/example-flags/orangeflag.png"
 original_territory = NodePath("../territory2")
 main = NodePath("..")
 
 [node name="territory3" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(1216, 284)
 neighbours = [NodePath("../territory2"), NodePath("../territory6")]
+current_empire = NodePath("")
 
 [node name="empire3" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(1216, 284)
-label = "Yellow"
 base_color = Color(1, 1, 0, 1)
-flag = "res://assets/example-flags/yellowflag.png"
 original_territory = NodePath("../territory3")
 main = NodePath("..")
 
 [node name="territory4" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(704, 540)
 neighbours = [NodePath("../territory1"), NodePath("../territory5"), NodePath("../territory7")]
+current_empire = NodePath("")
 
 [node name="empire4" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(704, 540)
-label = "Green"
 base_color = Color(0, 1, 0, 1)
-flag = "res://assets/example-flags/greenflag.png"
 original_territory = NodePath("../territory4")
 main = NodePath("..")
 
 [node name="territory5" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(960, 540)
 neighbours = [NodePath("../territory2"), NodePath("../territory4"), NodePath("../territory6"), NodePath("../territory8")]
+current_empire = NodePath("")
 
 [node name="empire5" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(960, 540)
-label = "Cyan"
 base_color = Color(0, 1, 1, 1)
-flag = "res://assets/example-flags/cyanflag.png"
 original_territory = NodePath("../territory5")
 main = NodePath("..")
 
 [node name="territory6" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(1216, 540)
 neighbours = [NodePath("../territory3"), NodePath("../territory5"), NodePath("../territory9")]
+current_empire = NodePath("")
 
 [node name="empire6" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(1216, 540)
-label = "Blue"
 base_color = Color(0, 0, 1, 1)
-flag = "res://assets/example-flags/blueflag.png"
 original_territory = NodePath("../territory6")
 main = NodePath("..")
 
 [node name="territory7" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(704, 796)
 neighbours = [NodePath("../territory4"), NodePath("../territory8")]
+current_empire = NodePath("")
 
 [node name="empire7" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(704, 796)
-label = "Purple"
 base_color = Color(0.501961, 0, 1, 1)
-flag = "res://assets/example-flags/purpleflag.png"
 original_territory = NodePath("../territory7")
 main = NodePath("..")
 
 [node name="territory8" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(960, 796)
 neighbours = [NodePath("../territory7"), NodePath("../territory5"), NodePath("../territory9")]
+current_empire = NodePath("")
 
 [node name="empire8" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(960, 796)
-label = "Pink"
 base_color = Color(1, 0, 1, 1)
-flag = "res://assets/example-flags/pinkflag.png"
 original_territory = NodePath("../territory8")
 main = NodePath("..")
 
 [node name="territory9" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
 position = Vector2(1216, 796)
 neighbours = [NodePath("../territory8"), NodePath("../territory6")]
+current_empire = NodePath("")
 
 [node name="empire9" parent="." node_paths=PackedStringArray("original_territory", "main") instance=ExtResource("2_bp1i5")]
 position = Vector2(1216, 796)
-label = "Grey"
 base_color = Color(0.391185, 0.391185, 0.391185, 1)
-flag = "res://assets/example-flags/greyflag.png"
 original_territory = NodePath("../territory9")
 main = NodePath("..")
 
-[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Invade" to="." method="_on_invade_pressed"]
+[connection signal="pressed" from="CanvasLayer/Rebel" to="." method="_on_rebel_pressed"]
