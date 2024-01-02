@@ -25,6 +25,7 @@ func invade():
 
 func rebel():
 	if dead_empires.size() <= 0:
+		invade();
 		return;
 
 	var revived_empire = dead_empires.pick_random();
