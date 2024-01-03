@@ -9,11 +9,13 @@ class_name game
 @export_range(0, 100, 1, "suffix:%") var rebel_chance: int;
 @export var ui: UI;
 @export var game_timer: Timer;
+@export var win_cooldown: Timer;
 
 func invade():
 	if alive_empires.size() <= 1:
 		game_timer.stop();
-		win();
+		win_cooldown.start();
+
 		return;
 
 	var attacking_empire = alive_empires.pick_random();
@@ -38,6 +40,8 @@ func rebel():
 func win():
 	var last_empire = alive_empires[0];
 
+	ui.win_screen(last_empire);
+
 	pass;
 
 func move():
@@ -55,3 +59,7 @@ func _ready():
 
 func _on_game_timer_timeout():
 	move();
+
+
+func _on_win_cooldown_timeout():
+	win();

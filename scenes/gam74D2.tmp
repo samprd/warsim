@@ -5,13 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bl5jxv2or78xe" path="res://objects/ui.tscn" id="2_7i26d"]
 [ext_resource type="PackedScene" uid="uid://d3vi5co3frh5a" path="res://objects/empire.tscn" id="2_bp1i5"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("alive_empires", "ui", "game_timer", "win_cooldown")]
+[node name="Game" type="Node" node_paths=PackedStringArray("alive_empires", "ui", "game_timer")]
 script = ExtResource("1_gqnug")
 alive_empires = [NodePath("empire1"), NodePath("empire2"), NodePath("empire3"), NodePath("empire4"), NodePath("empire5"), NodePath("empire6"), NodePath("empire7"), NodePath("empire8"), NodePath("empire9")]
 rebel_chance = 25
 ui = NodePath("CanvasLayer/UI")
 game_timer = NodePath("GameTimer")
-win_cooldown = NodePath("WinCooldown")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,7 +21,6 @@ wait_time = 3.0
 autostart = true
 
 [node name="WinCooldown" type="Timer" parent="."]
-wait_time = 0.35
 one_shot = true
 
 [node name="territory1" parent="." node_paths=PackedStringArray("neighbours") instance=ExtResource("1_padcq")]
@@ -134,4 +132,3 @@ original_territory = NodePath("../territory9")
 main = NodePath("..")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
-[connection signal="timeout" from="WinCooldown" to="." method="_on_win_cooldown_timeout"]
